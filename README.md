@@ -1,18 +1,5 @@
 # Task Flow Management
 
-## Priority helpers
+## Priority helper
 
-Use `taskflow.priority.sort_tasks` to order task dictionaries by priority:
-
-```python
-from taskflow.priority import sort_tasks
-
-tasks = sort_tasks([
-    {"title": "Review", "priority": "medium"},
-    {"title": "Deploy", "priority": "high"},
-])
-```
-
-Tasks are returned in `high`, `medium`, then `low` priority order. The sort is
-stable, so tasks with the same priority retain their original order. Unknown
-priority values are placed after the known priorities.
+The `sort_tasks` helper sorts tasks by priority in the order high, medium, and low. Priority matching is case-insensitive and ignores surrounding whitespace. Tasks with an unknown, missing, or `None` priority are sorted last. Sorting is stable, so tasks with equivalent priorities retain their original order, and the input list and task dictionaries are not modified.
